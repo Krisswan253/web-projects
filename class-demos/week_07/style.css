@@ -1,0 +1,52 @@
+#body{
+    width: 100px;
+}
+
+/*regular styling that will always apply outside quieries*/
+
+html{
+    margin: 0;
+    color: white;
+
+}
+
+@media screen and (orientation: landscape) {
+    /* if on computer, add our normal css selectors */
+    body{
+        background: navy
+    }
+
+    @media screen and (orientation: portrait) and (max-width:450px){
+        body{
+            background: magenta;
+        }
+    }
+    /* x-small screen size*/
+    @media screen and (max-width:576px){
+        html{
+            font-size: 72px;
+            background-color:yellow;
+        }
+    }
+
+    /*small*/
+
+    @media screen and (min-width: 576px) and (max-width:786px){
+        p{
+            font: size 60px;
+            background-color:yellow;
+        }
+    }
+
+
+    /*medium*/
+
+    @media screen and (min-width: 768px) and (max-width:992px){
+        p{
+            font: size 60px;
+            background-color:yellow;
+        }
+    }
+
+ 
+}
