@@ -233,6 +233,7 @@ input, select {
 
 .btn.primary {
   background: linear-gradient(90deg, #d52d00, #d162a4);
+  text-decoration: none;
 }
 .btn.primary:hover {
   transform: translateY(-2px);
@@ -281,4 +282,8 @@ footer {
   text-align: center;
   color: #bbbbbb;
   padding: 20px 0;
+}
+
+@media screen and (max-width:848px){
+
 }
