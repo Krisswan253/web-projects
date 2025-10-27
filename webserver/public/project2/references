@@ -1,0 +1,98 @@
+
+# Lava Lamp Screensaver — References (W3Schools + p5.js)
+
+---
+
+## CSS References (from W3Schools)
+- **Animations & Keyframes** — https://www.w3schools.com/css/css3_animations.asp  
+  Defines how elements smoothly change properties over time.
+
+- **Transforms** — https://www.w3schools.com/cssref/func_translate.php  
+
+- **Filters (hue-rotate)** — https://www.w3schools.com/cssref/css3_pr_filter.php  
+  Gradually shifts blob color tones.
+
+- **Gradients** — https://www.w3schools.com/css/css3_gradients_radial.asp  
+  Used for smooth blob edges and color blending.
+
+- **Box Shadow** — https://www.w3schools.com/cssref/css3_pr_box-shadow.php  
+  Creates the blob’s glow effect.
+
+- **Flexbox Layout** — https://www.w3schools.com/css/css3_flexbox.asp  
+  Centers the clock and AM/PM vertically and horizontally.
+
+- **Typography (Font Family)** — https://www.w3schools.com/cssref/pr_font_font-family.php  
+  Applies the Google Font *Didact Gothic* to the text.
+
+- **Media Queries** — https://www.w3schools.com/css/css3_mediaqueries_ex.asp  
+  Used to handle screen resizing and accessibility options (like reduced motion).
+
+---
+
+## 🕒 JavaScript (main.js) References (from W3Schools)
+- **Date Object** — https://www.w3schools.com/js/js_dates.asp  
+  Gets the system time to display live hours, minutes, and seconds.
+
+- **getHours(), getMinutes(), getSeconds()** — https://www.w3schools.com/jsref/jsref_gethours.asp  
+  Extracts current time data for the on-screen clock.
+
+- **padStart()** — https://www.w3schools.com/jsref/jsref_padstart.asp  
+  Ensures double-digit formatting for time display.
+
+- **setInterval()** — https://www.w3schools.com/jsref/met_win_setinterval.asp  
+  Updates the clock every second.
+
+- **DOMContentLoaded Event** — https://www.w3schools.com/jsref/event_dom_content_loaded.asp  
+  Ensures clock updates only after HTML content is loaded.
+
+- **classList.toggle()** — https://www.w3schools.com/jsref/prop_element_classlist.asp  
+  Switches between day/night background themes based on hour.
+
+- **textContent** — https://www.w3schools.com/jsref/prop_node_textcontent.asp  
+  Updates on-screen text dynamically without reloading the page.
+
+- **matchMedia()** — https://www.w3schools.com/jsref/met_win_matchmedia.asp  
+  Checks user settings for reduced motion and adapts animation behavior.
+
+---
+
+##  p5.js (sketch.js) References (from Official p5.js Docs)
+- **setup()** — https://p5js.org/reference/#/p5/setup  
+  Runs once to initialize the canvas and environment.
+
+- **draw()** — https://p5js.org/reference/#/p5/draw  
+  Continuously loops, updating and rendering each frame.
+
+- **createCanvas()** — https://p5js.org/reference/#/p5/createCanvas  
+  Sets up the drawing surface for the blobs.
+
+- **resizeCanvas()** — https://p5js.org/reference/#/p5/resizeCanvas  
+  Adjusts the canvas when the browser window resizes.
+
+- **createGraphics()** — https://p5js.org/reference/#/p5/createGraphics  
+  Creates an offscreen buffer for more efficient blob rendering.
+
+- **loadPixels() / updatePixels()** — https://p5js.org/reference/#/p5/loadPixels  
+  Accesses and modifies pixel data for the metaball effect.
+
+- **colorMode()** — https://p5js.org/reference/#/p5/colorMode  
+  Uses HSB mode for smoother color transitions.
+
+- **map()** — https://p5js.org/reference/#/p5/map  
+  Converts a value range (used for hue drift).
+
+- **sin()** — https://p5js.org/reference/#/p5/sin  
+  Produces smooth periodic motion for blob floating.
+
+- **random()** — https://p5js.org/reference/#/p5/random  
+  Adds natural randomness to blob positions and speeds.
+
+- **constrain()** — https://p5js.org/reference/#/p5/constrain  
+  Keeps values (like alpha or position) within safe limits.
+
+- **image()** — https://p5js.org/reference/#/p5/image  
+  Draws the offscreen buffer back onto the visible canvas.
+
+- **millis()** — https://p5js.org/reference/#/p5/millis  
+  Provides a running timer used for smooth hue shifting.
+

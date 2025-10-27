@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Lesbian Style Protection Agency</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Font: Didact Gothic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+
+
+  <link href="/style.css" rel="stylesheet" />
+</head>
+<body class="theme-kitsch">
+
+  <!-- Glittery top bar -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="marquee">
+        <span>Lesbian Style Protection Agency — Protecting lesbian aesthetics — Report style theft —</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="wrap hero stack">
+    <h1 class="main-title">Lesbian Style Protection Agency</h1>
+    <p class="tagline">Cis heterosexual men have been stealing our style for too long. It is time to fight back.</p>
+  </header>
+
+  <main class="wrap delayed">
+
+    <!-- Top 10 -->
+    <section class="card stack center">
+      <h3 class="centered-title">Top 10 Lesbian Things</h3>
+      <p class="subnote">…if you relate, you are gay</p>
+      <ul class="top10">
+        <li>carabiners</li>
+        <li>plaid cargo shorts phase</li>
+        <li>that one girl in elementary school you were obsessed with and no idea why at the time</li>
+        <li>Short nails (doesnt apply to bottoms)</li>
+        <li>beanies, rolled</li>
+        <li>pretending like you liked the L word when you first watched it</li>
+        <li>flannels</li>
+        <li>being friends with your ex</li>
+        <li>cutting your shirts instead of getting them tailored</li>
+        <li>strong dislike for straight men stealing your style</li>
+      </ul>
+    </section>
+
+    <!-- Composer -->
+    <section class="composer card stack">
+      <h2>File a Theft Report</h2>
+
+    <form action="/submit" method="POST" enctype="multipart/form-data" class="composer-form">
+  <div class="row">
+    <label>
+      <span>Offender</span>
+      <input type="text" name="offender" placeholder="@guyinlevis" />
+    </label>
+    <label>
+      <span>Category</span>
+      <select name="category">
+        <option>Man wearing masc lesbian fits</option>
+        <option>carabiner stealers</option>
+        <option>General</option>
+      </select>
+    </label>
+  </div>
+
+  <label class="wide">
+    <span>Caption</span>
+    <input type="text" name="caption" placeholder="Explain the style theft..." required />
+  </label>
+
+  <label class="wide">
+    <span>Provide Evidence (optional)</span>
+    <input type="file" name="image" accept="image/*" />
+  </label>
+
+  <div class="actions">
+    <button class="btn primary" type="submit">Post</button>
+    <button class="btn ghost" type="reset">Clear</button>
+  </div>
+</form>
+
+    <!-- SMS section -->
+    <section class="card sms-card stack center">
+      <h2>Send a Text</h2>
+      <p class="small muted">On a phone, this opens the SMS app with our message. Please spread awareness and send this to all your straight cis man friends. </p>
+
+      <form id="smsForm" class="sms-form" onsubmit="return false">
+        <label class="wide">
+          <span> Enter Phone Number Below</span>
+          <input type="tel" id="smsNumber" placeholder="+1 555 123 4567" />
+        </label>
+
+        <input type="hidden" id="smsBody"
+        value="This is a message from LSPA (Lesbian Style Protection Agency): you will never be as cool as a lesbian. Stop trying." />
+
+        <div class="actions">
+          <a id="smsLink" class="btn primary" href="#">Send a text</a>
+        </div>
+
+        <p id="smsNote" class="muted tiny"></p>
+      </form>
+    </section>
+
+    <!-- Feed -->
+    <section class="feed card stack">
+      <h2 class="center">The Evidence Room</h2>
+      <div id="feed" class="tiles"></div>
+    </section>
+
+  </main>
+
+  <footer class="wrap footer delayed stack center">
+    <small>© Lesbian Style Protection Agency — Educational and stylish purposes only.</small>
+  </footer>
+
+<script>
+  (function(){
+    const numberEl = document.getElementById('smsNumber');
+    const bodyEl   = document.getElementById('smsBody');
+    const linkEl   = document.getElementById('smsLink');
+
+    function updateLink(){
+      const rawNum = (numberEl.value || '').replace(/[^+\d]/g,'');
+      const body   = encodeURIComponent(bodyEl.value);
+      if(!rawNum){linkEl.href="#";return;}
+      const ios = /iPhone|iPad|iPod/.test(navigator.userAgent);
+      linkEl.href = ios
+        ? `sms:${rawNum}&body=${body}`
+        : `sms:${rawNum}?body=${body}`;
+    }
+    numberEl.addEventListener('input', updateLink);
+    updateLink();
+  })();
+</script>
+
+<script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+/* GLOBAL RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Lesbian Flag Confetti Background + Carabiner Sprinkles */
+body {
+  font-family: "Didact Gothic", sans-serif !important;
+  color: #ffffff;
+  /* base: dots in lesbian flag colors on black */
+  background:
+    radial-gradient(circle at 10% 20%, #d52d00 2px, transparent 3px),
+    radial-gradient(circle at 30% 80%, #ef7627 2px, transparent 3px),
+    radial-gradient(circle at 70% 30%, #ffffff 2px, transparent 3px),
+    radial-gradient(circle at 90% 60%, #d162a4 2px, transparent 3px),
+    radial-gradient(circle at 50% 50%, #b55690 2px, transparent 3px),
+    radial-gradient(circle at 20% 60%, #a30262 2px, transparent 3px),
+    #000000;
+  background-size: 200px 200px;
+  position: relative;
+  min-height: 100%;
+}
+
+/* sprinkle layer #1 (tiny carabiners, light) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("/img/carabiner.png");
+  background-repeat: repeat;
+  background-size: 64px auto;             /* size of each icon */
+  background-position: 0 0;               /* grid start */
+  opacity: 0.10;                           /* faint */
+}
+
+/* sprinkle layer #2 (offset grid for variety) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("/img/carabiner.png");
+  background-repeat: repeat;
+  background-size: 72px auto;             /* slightly different size */
+  background-position: 40px 60px;         /* offset so it doesn't look too grid-like */
+  opacity: 0.08;
+}
+
+/* Card layout wrapper */
+.wrap {
+  width: min(900px, 94vw);
+  margin-inline: auto;
+  position: relative;
+  z-index: 1; /* keep content over the sprinkle layers */
+}
+
+.stack { margin-block: 40px; }
+.center { text-align: center; }
+
+/* CARDS */
+.card {
+  background: #111;
+  border: 2px solid #ffffff22;
+  border-radius: 16px;
+  padding: 26px;
+  box-shadow: 0 24px 48px #0008;
+  position: relative;
+  z-index: 1;
+}
+
+/* ====== HEADERS / TITLES ====== */
+/* Shared header style: Silkscreen + pink + orange glow */
+.silk-pink-glow {
+  font-family: 'Silkscreen', cursive !important;
+  color: #ff2ea6; /* pink */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* orange glow (layered text-shadow for softness) */
+  text-shadow:
+    0 0 6px rgba(239,118,39,0.55),   /* #ef7627 */
+    0 0 14px rgba(213,45,0,0.35),    /* #d52d00 */
+    0 2px 10px rgba(0,0,0,0.45);
+}
+
+/******** Header ********/
+.hero { text-align: center; padding-top: 40px; }
+
+.main-title {
+  font-size: 46px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+/* Apply Silkscreen + glow to main title and tagline */
+.main-title,
+.tagline {
+  font-family: 'Silkscreen', cursive !important;
+  color: #ff2ea6;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 6px rgba(239,118,39,0.55),
+    0 0 14px rgba(213,45,0,0.35),
+    0 2px 10px rgba(0,0,0,0.45);
+}
+
+.tagline {
+  font-size: 19px;
+  max-width: 700px;
+  margin: auto;
+}
+
+/******** Scrolling Top Bar ********/
+.topbar {
+  background: #000;
+  border-bottom: 2px solid #ffffff22;
+  position: sticky;
+  top: 0;
+  z-index: 5; /* above sprinkles */
+}
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 6px 0;
+  /* color of container left default (we color the inner span) */
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll 18s linear infinite;
+  /* Silkscreen + pink + glow for marquee text */
+  font-family: 'Silkscreen', cursive !important;
+  color: #ff2ea6;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 6px rgba(239,118,39,0.55),
+    0 0 14px rgba(213,45,0,0.35),
+    0 2px 10px rgba(0,0,0,0.45);
+}
+
+@keyframes scroll { to { transform: translateX(-100%); } }
+
+/******** Section Titles (h2s) ********/
+/* Apply Silkscreen pink + glow to all section h2s */
+section > h2 {
+  font-family: 'Silkscreen', cursive !important;
+  color: #ff2ea6;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 26px;
+  margin-bottom: 8px;
+  text-shadow:
+    0 0 6px rgba(239,118,39,0.55),
+    0 0 14px rgba(213,45,0,0.35),
+    0 2px 10px rgba(0,0,0,0.45);
+}
+
+/******** Top 10 Section ********/
+.centered-title {
+  font-family: 'Silkscreen', cursive !important;
+  font-size: 28px;
+  color: #ff2ea6; /* same pink as marquee */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+  text-shadow:
+    0 0 6px rgba(239,118,39,0.55),
+    0 0 14px rgba(213,45,0,0.35),
+    0 2px 10px rgba(0,0,0,0.45);
+}
+
+.subnote {
+  font-family: 'Silkscreen', cursive !important;
+  font-size: 12px;
+  color: #ff2ea6;  /* same pink */
+  font-style: italic;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 6px rgba(239,118,39,0.55),
+    0 0 14px rgba(213,45,0,0.35),
+    0 2px 10px rgba(0,0,0,0.45);
+}
+
+/******** Top 10 List ********/
+.top10 {
+  list-style: none !important;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.top10 li { text-align: center; padding: 3px 0; }
+
+/******** Forms ********/
+label { display: flex; flex-direction: column; gap: 4px; }
+
+input, select {
+  background: #151515;
+  border: 2px solid #ffffff33;
+  border-radius: 12px;
+  padding: 12px;
+  color: #ffffff;
+  font-family: "Didact Gothic", sans-serif;
+}
+
+.actions { display: flex; gap: 12px; margin-top: 10px; flex-wrap: wrap; }
+
+/******** BUTTONS — Lesbian Pride Theme ********/
+.btn, button.delete {
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #ffffff;
+  text-transform: uppercase;
+  transition: transform .06s ease, background .15s ease, border-color .15s ease;
+  border: none;
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, #d52d00, #d162a4);
+}
+.btn.primary:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #ef7627, #b55690);
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+.btn.ghost:hover {
+  border-color: #d162a4;
+  color: #d162a4;
+}
+
+button.delete {
+  background: #d52d00;
+  border: 2px solid #ef7627;
+  padding: 8px 12px;
+}
+button.delete:hover {
+  background: #ef7627;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/******** FEED ********/
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.cardlet img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/******** Footer ********/
+footer {
+  text-align: center;
+  color: #bbbbbb;
+  padding: 20px 0;
+}

@@ -1,0 +1,162 @@
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #000; /* default (night) until JS sets class */
+  font-family: "Didact Gothic", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #fff;
+}
+
+/* Night */
+body.theme-night {
+  background: #000;
+}
+
+/* Day */
+body.theme-day {
+  background: radial-gradient(1200px 800px at 50% 30%, #6bb7f7 0%, #3e8fce 55%, #1f5f99 100%);
+}
+
+/* ---------- Clock ---------- */
+.clock {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;           /* tighter AM spacing */
+  pointer-events: none;
+  z-index: 5;
+  text-align: center;
+}
+
+
+.time { font-size: 10vw; font-weight: 700; letter-spacing: 1px; text-shadow: 0 14px 36px rgba(0,0,0,.55); line-height: 1; }
+.ampm { font-size: 2.2vw; letter-spacing: 1px; opacity: .95; transform: translateY(-6px); }
+
+/* Upper caps on very large screens */
+@media (min-width: 1200px) {
+  .time { font-size: 120px; }
+  .ampm { font-size: 22px; }
+}
+
+/* Lower caps on small screens */
+@media (max-width: 560px) {
+  .time { font-size: 56px; }
+  .ampm { font-size: 14px; }
+}
+
+/* ---------- Blobs (default to NIGHT ) ---------- */
+.lamp-bg { position: absolute; inset: 0; overflow: hidden; }
+
+.blob {
+  position: absolute;
+  width: 320px;  /* overridden per-blob below */
+  height: 320px; /* overridden per-blob below */
+  border-radius: 50%;
+  opacity: 0.92;
+
+  /* green→teal core with soft falloff (night) */
+  background:
+    radial-gradient(circle at 40% 40%,
+      rgba(60, 220, 140, 1) 0%,
+      rgba(40, 200, 140, 0.95) 38%,
+      rgba(20, 160, 150, 0.70) 62%,
+      rgba(10, 120, 150, 0.00) 82%);
+
+  /* subtle glow (night) */
+  box-shadow:
+    0 0 30px rgba(40, 210, 170, 0.22),
+    0 0 80px rgba(40, 170, 255, 0.18);
+
+  filter: hue-rotate(0deg);           /* color cycle animation changes this */
+  will-change: transform, filter;
+}
+
+/* vertical motion keyframes ( one per blob) */
+@keyframes floatY120 { to { transform: translateY(-120px); } }
+@keyframes floatY140 { to { transform: translateY(-140px); } }
+@keyframes floatY160 { to { transform: translateY(-160px); } }
+@keyframes floatY180 { to { transform: translateY(-180px); } }
+@keyframes floatY200 { to { transform: translateY(-200px); } }
+
+/* hue cycles */
+@keyframes hueGB {           /* green → blue (night) */
+  0%   { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(90deg); }
+}
+@keyframes hueOR {           /* orange → red (day) */
+  0%   { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(30deg); }
+}
+
+/* ---------- Night animations (default) ---------- */
+.blob1 {
+  width: 360px; height: 360px; left: 6%;  top: 68%;
+  animation: floatY180 44s ease-in-out -6s infinite alternate,
+             hueGB 85s linear 0s infinite alternate;
+}
+.blob2 {
+  width: 420px; height: 420px; right: 8%; top: 12%;
+  animation: floatY200 52s ease-in-out -10s infinite alternate,
+             hueGB 95s linear 0s infinite alternate;
+}
+.blob3 {
+  width: 300px; height: 300px; left: 42%; bottom: -2%;
+  animation: floatY160 40s ease-in-out -14s infinite alternate,
+             hueGB 80s linear 0s infinite alternate;
+}
+.blob4 {
+  width: 260px; height: 260px; left: 26%; top: 22%;
+  animation: floatY140 34s ease-in-out -6s infinite alternate,
+             hueGB 70s linear 0s infinite alternate;
+}
+.blob5 {
+  width: 240px; height: 240px; right: 22%; bottom: 4%;
+  animation: floatY120 30s ease-in-out -18s infinite alternate,
+             hueGB 65s linear 0s infinite alternate;
+}
+
+/* ---------- Day overrides ---------- */
+/* swaps blob colors and glow, and switch hue animation to orange→red */
+body.theme-day .blob {
+  background:
+    radial-gradient(circle at 40% 40%,
+      rgba(255, 170, 50, 1) 0%,
+      rgba(255, 140, 20, 0.95) 38%,
+      rgba(255, 110, 20, 0.70) 62%,
+      rgba(255, 110, 20, 0.00) 82%);
+  box-shadow:
+    0 0 30px rgba(255, 160, 90, 0.20),
+    0 0 80px rgba(255, 80, 40, 0.15);
+}
+
+
+body.theme-day .blob1 {
+  animation: floatY180 44s ease-in-out -6s infinite alternate,
+             hueOR 85s linear 0s infinite alternate;
+}
+body.theme-day .blob2 {
+  animation: floatY200 52s ease-in-out -10s infinite alternate,
+             hueOR 95s linear 0s infinite alternate;
+}
+body.theme-day .blob3 {
+  animation: floatY160 40s ease-in-out -14s infinite alternate,
+             hueOR 80s linear 0s infinite alternate;
+}
+body.theme-day .blob4 {
+  animation: floatY140 34s ease-in-out -6s infinite alternate,
+             hueOR 70s linear 0s infinite alternate;
+}
+body.theme-day .blob5 {
+  animation: floatY120 30s ease-in-out -18s infinite alternate,
+             hueOR 65s linear 0s infinite alternate;
+}
+
+/* accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .blob { animation: none; }
+}
+
