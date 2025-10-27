@@ -129,7 +129,7 @@ body::after {
   overflow: hidden;
   white-space: nowrap;
   padding: 6px 0;
-  /* color of container left default (we color the inner span) */
+  /* color of container left default (color the inner span) */
 }
 
 .marquee span {

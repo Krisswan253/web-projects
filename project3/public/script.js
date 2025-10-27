@@ -1,5 +1,5 @@
 // public/script.js
-// Week 05–06 client: load all messages, render tiles, support delete by id
+// Week 05–06: load all messages, render tiles, support delete by id
 
 async function getMessages() {
   try {

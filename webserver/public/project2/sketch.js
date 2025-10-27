@@ -109,7 +109,7 @@ function draw() {
     for (let x = 0; x < bw; x++) {
       let px = (x / bw) * width;
 
-      //blob connect and disconnect (field sum)
+      // inverse-square field sum
       let fieldSum = 0;
       for (let j = 0; j < centers.length; j++) {
         let c = centers[j];
