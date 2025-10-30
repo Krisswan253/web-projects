@@ -72,7 +72,8 @@ app.post('/submit', upload.single('image'), (req, res) => {
   data.push(newPost);
 
   // Redirect back to homepage
-  res.redirect('/');
+  // res.redirect('/');
+  res.sendFile('evidence.html', {root:'public'})
 });
 
 // Delete by id — return JSON (so fetch DELETE sees 200 OK)
