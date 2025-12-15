@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>can you hear me?</title>
+
+    <!-- Google Font: Eagle Lake -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap"
+      rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- p5.js -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+  </head>
+<div id="refreshNote">
+  you may refresh the page whenever you wish to restart.
+</div>
+ 
+  <body>
+    <div id="ui">
+      <div id="panel">
+        <div id="line"></div>
+
+        <div id="controls"></div>
+
+        <div id="choices" class="hidden"></div>
+
+        <div id="nameArea" class="hidden">
+          <input
+            id="nameInput"
+            type="text"
+            autocomplete="off"
+            placeholder="type your name"
+          >
+          <button id="nameBtn">enter</button>
+        </div>
+      </div>
+    </div>
+
+    <audio id="bgAudio" src="theme.mp3" loop></audio>
+
+    <!-- bottom right audio controls -->
+    <div id="audioControls">
+      <button id="muteBtn">mute</button>
+      <button id="unmuteBtn">unmute</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>

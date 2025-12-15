@@ -1,0 +1,15 @@
+{
+  "name": "project5",
+  "version": "1.0.0",
+  "description": "Due 12/15 For your final project, you will design and build a website starting from *one* of the following four prompts:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
