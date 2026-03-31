@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Evidence Room</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+          <!-- Font: Didact Gothic and SilkScreen -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+
+
+        <link href="/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Glittery top bar -->
+        <div class="topbar">
+            <div class="wrap">
+            <div class="marquee">
+                <span>Lesbian Style Protection Agency — Protecting lesbian aesthetics — Report style theft —</span>
+            </div>
+            </div>
+        </div>
+
+        <!-- NAVBAR -->
+        <nav>
+            <a href="./index.html">File a Theft</a>
+            <a href="./evidence.html">Evidence Room</a>
+        </nav>
+
+
+        <main class="wrap delayed">
+            <!-- Feed -->
+            <section class="feed card stack">
+            <h2 class="center">The Evidence Room</h2>
+            <div id="feed" class="tiles"></div>
+            </section>
+        </main>
+
+        <footer class="wrap footer delayed stack center">
+            <small>© Lesbian Style Protection Agency — Educational and stylish purposes only.</small>
+        </footer>
+
+        <script>
+        (function(){
+            const numberEl = document.getElementById('smsNumber');
+            const bodyEl   = document.getElementById('smsBody');
+            const linkEl   = document.getElementById('smsLink');
+
+            function updateLink(){
+            const rawNum = (numberEl.value || '').replace(/[^+\d]/g,'');
+            const body   = encodeURIComponent(bodyEl.value);
+            if(!rawNum){linkEl.href="#";return;}
+            const ios = /iPhone|iPad|iPod/.test(navigator.userAgent);
+            linkEl.href = ios
+                ? `sms:${rawNum}&body=${body}`
+                : `sms:${rawNum}?body=${body}`;
+            }
+            numberEl.addEventListener('input', updateLink);
+            updateLink();
+        })();
+        </script>
+
+        <script src="/script.js"></script>
+    </body>
+</html>

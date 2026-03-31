@@ -233,6 +233,7 @@ input, select {
 
 .btn.primary {
   background: linear-gradient(90deg, #d52d00, #d162a4);
+  text-decoration: none;
 }
 .btn.primary:hover {
   transform: translateY(-2px);
@@ -281,4 +282,59 @@ footer {
   text-align: center;
   color: #bbbbbb;
   padding: 20px 0;
+}
+
+/* NAVBAR */
+nav{
+  padding-top: 30px;
+  width: min(900px, 94vw);
+  height: fit-content;
+  margin-inline: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav a{
+  all:unset;
+  font-family: 'Silkscreen', cursive !important;
+  cursor: pointer;
+  padding: 12px;
+  border: solid 2px #d162a4;
+  border-radius: 12px;
+  background-color: #111;
+  color: #d162a4;
+  transition: .3s ease;
+    text-shadow:
+    0 0 6px rgba(239,118,39,0.55),   /* #ef7627 */
+    0 0 14px rgba(213,45,0,0.35),    /* #d52d00 */
+    0 2px 10px rgba(0,0,0,0.45);
+}
+nav a:hover{
+  background: linear-gradient(90deg, #ef7627, #b55690);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Media Query */
+@media screen and (max-width: 500px){
+  /* increase select option font size */
+  select{
+    font-size: 18px;
+    padding: 8px;
+  }
+}
+
+@media screen and (max-width: 400px){
+  /* column layout for nav buttons */
+  nav{
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  nav a{
+    width: 100%;
+    text-align: center;
+  }
 }
